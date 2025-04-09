@@ -14,6 +14,7 @@
     --text-2xl--line-height: calc(2 / 1.5);
     --font-weight-normal: 400;
     --font-weight-bold: 700;
+    --radius-sm: 0.25rem;
     --radius-lg: 0.5rem;
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -23,7 +24,9 @@
     --color-orangea: #ff7000;
     --color-blacka: #333333;
     --color-blackb: #BABABA;
+    --color-blackc: #666666;
     --font-roboto: 'Roboto', 'sans-serif';
+    --font-lora: 'Lora', 'serif';
   }
 }
 @layer base {
@@ -181,11 +184,20 @@
   .flex {
     display: flex;
   }
+  .table {
+    display: table;
+  }
   .h-\[55px\] {
     height: 55px;
   }
   .w-\[55px\] {
     width: 55px;
+  }
+  .w-\[497px\] {
+    width: 497px;
+  }
+  .w-\[535px\] {
+    width: 535px;
   }
   .w-full {
     width: 100%;
@@ -193,8 +205,14 @@
   .max-w-container {
     max-width: var(--spacing-container);
   }
+  .border-collapse {
+    border-collapse: collapse;
+  }
   .cursor-pointer {
     cursor: pointer;
+  }
+  .resize {
+    resize: both;
   }
   .items-center {
     align-items: center;
@@ -214,6 +232,13 @@
   }
   .rounded-lg {
     border-radius: var(--radius-lg);
+  }
+  .rounded-sm {
+    border-radius: var(--radius-sm);
+  }
+  .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
   }
   .bg-black {
     background-color: var(--color-black);
@@ -236,14 +261,35 @@
   .py-6 {
     padding-block: calc(var(--spacing) * 6);
   }
+  .py-\[18px\] {
+    padding-block: 18px;
+  }
+  .pt-6 {
+    padding-top: calc(var(--spacing) * 6);
+  }
+  .pt-\[288px\] {
+    padding-top: 288px;
+  }
   .pr-\[50px\] {
     padding-right: 50px;
+  }
+  .pb-10 {
+    padding-bottom: calc(var(--spacing) * 10);
+  }
+  .pb-\[323px\] {
+    padding-bottom: 323px;
+  }
+  .pl-3 {
+    padding-left: calc(var(--spacing) * 3);
   }
   .pl-3\.5 {
     padding-left: calc(var(--spacing) * 3.5);
   }
   .pl-\[15px\] {
     padding-left: 15px;
+  }
+  .font-lora {
+    font-family: var(--font-lora);
   }
   .font-roboto {
     font-family: var(--font-roboto);
@@ -254,6 +300,9 @@
   }
   .text-\[15px\] {
     font-size: 15px;
+  }
+  .text-\[54px\] {
+    font-size: 54px;
   }
   .font-bold {
     --tw-font-weight: var(--font-weight-bold);
@@ -266,6 +315,9 @@
   .text-blackb {
     color: var(--color-blackb);
   }
+  .text-blackc {
+    color: var(--color-blackc);
+  }
   .text-orangea {
     color: var(--color-orangea);
   }
@@ -277,6 +329,13 @@
   }
   .italic {
     font-style: italic;
+  }
+  .underline {
+    text-decoration-line: underline;
+  }
+  .outline {
+    outline-style: var(--tw-outline-style);
+    outline-width: 1px;
   }
   .transition {
     transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter;
@@ -319,9 +378,19 @@
   inherits: false;
   initial-value: 0;
 }
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
 @property --tw-font-weight {
   syntax: "*";
   inherits: false;
+}
+@property --tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
 }
 @property --tw-duration {
   syntax: "*";
@@ -331,7 +400,9 @@
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
       --tw-space-x-reverse: 0;
+      --tw-border-style: solid;
       --tw-font-weight: initial;
+      --tw-outline-style: solid;
       --tw-duration: initial;
     }
   }
