@@ -3,6 +3,11 @@
 /* custom */
 @theme {
   --spacing-container: 1170px;
+
   --color-orangea: #ff7000;
   --color-blacka: #333333;
+  --color-blackb: #BABABA;
+
+  --font-roboto: 'Roboto', 'sans-serif';
+  --font-lora: 'Lora', 'serif';
 }
