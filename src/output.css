@@ -21,6 +21,7 @@
     --default-mono-font-family: var(--font-mono);
     --spacing-container: 1170px;
     --color-orangea: #ff7000;
+    --color-blacka: #333333;
     --color-blackb: #BABABA;
     --font-roboto: 'Roboto', 'sans-serif';
   }
@@ -204,11 +205,21 @@
   .justify-center {
     justify-content: center;
   }
+  .space-x-\[77px\] {
+    :where(& > :not(:last-child)) {
+      --tw-space-x-reverse: 0;
+      margin-inline-start: calc(77px * var(--tw-space-x-reverse));
+      margin-inline-end: calc(77px * calc(1 - var(--tw-space-x-reverse)));
+    }
+  }
   .rounded-lg {
     border-radius: var(--radius-lg);
   }
   .bg-black {
     background-color: var(--color-black);
+  }
+  .bg-blacka {
+    background-color: var(--color-blacka);
   }
   .bg-orangea {
     background-color: var(--color-orangea);
@@ -227,6 +238,9 @@
   }
   .pr-\[50px\] {
     padding-right: 50px;
+  }
+  .pl-3\.5 {
+    padding-left: calc(var(--spacing) * 3.5);
   }
   .pl-\[15px\] {
     padding-left: 15px;
@@ -251,6 +265,9 @@
   }
   .text-blackb {
     color: var(--color-blackb);
+  }
+  .text-orangea {
+    color: var(--color-orangea);
   }
   .text-white {
     color: var(--color-white);
@@ -284,11 +301,23 @@
       }
     }
   }
+  .hover\:text-orangea {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-orangea);
+      }
+    }
+  }
   .sm\:w-auto {
     @media (width >= 40rem) {
       width: auto;
     }
   }
+}
+@property --tw-space-x-reverse {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
 }
 @property --tw-font-weight {
   syntax: "*";
@@ -301,6 +330,7 @@
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
+      --tw-space-x-reverse: 0;
       --tw-font-weight: initial;
       --tw-duration: initial;
     }
